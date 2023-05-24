@@ -119,7 +119,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               color: Colors.white,
                             ),
                             enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white)),
+                                borderSide: BorderSide(color: Colors.white),
+                                borderRadius: BorderRadius.circular(10)),
                             focusedBorder: OutlineInputBorder(
                               borderSide:
                                   BorderSide(color: Colors.green, width: 2),
@@ -174,7 +175,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                             ),
                             enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Colors.white)),
+                                borderSide: BorderSide(color: Colors.white),
+                                borderRadius: BorderRadius.circular(10)),
                             focusedBorder: OutlineInputBorder(
                               borderSide:
                                   BorderSide(color: Colors.green, width: 2),
@@ -195,11 +197,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: SizedBox(
                   width: double.infinity,
                   child: Material(
-                    color: Color.fromARGB(255, 255, 6, 6),
+                    color: Color.fromARGB(255, 20, 219, 27),
                     borderRadius: BorderRadius.circular(10),
                     child: InkWell(
                       onTap: () {
@@ -239,10 +241,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text(
                     "Don't have any account?",
                     style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.white70,
-                    ),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white70,
+                        fontStyle: FontStyle.italic),
                   ),
                   TextButton(
                     onPressed: () {
@@ -257,7 +259,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF7165D6)),
+                          color: Colors.white),
                     ),
                   ),
                 ],

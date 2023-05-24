@@ -101,161 +101,177 @@ class _SignupScreenState extends State<SignupScreen> {
                   key: _formKey,
                   child: Column(
                     children: [
-                      TextFormField(
-                        controller: _controller,
-                        style: TextStyle(color: _inputTextColor),
-                        decoration: InputDecoration(
-                          label: Text(
-                            "Full name",
-                            style: TextStyle(color: Colors.white),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: TextFormField(
+                          controller: _controller,
+                          style: TextStyle(color: _inputTextColor),
+                          decoration: InputDecoration(
+                            label: Text(
+                              "Full name",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            border: OutlineInputBorder(),
+                            prefixIcon: Icon(
+                              Icons.person,
+                              color: Colors.white,
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                                borderRadius: BorderRadius.circular(10)),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.green, width: 2),
+                            ),
                           ),
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(
-                            Icons.person,
-                            color: Colors.white,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white)),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.green, width: 2),
-                          ),
+                          validator: (value) {
+                            if (value!.isEmpty ||
+                                !RegExp(r'^[a-z A-z]+$').hasMatch(value!)) {
+                              return "please enter correct name ";
+                            } else {
+                              return null;
+                            }
+                          },
                         ),
-                        validator: (value) {
-                          if (value!.isEmpty ||
-                              !RegExp(r'^[a-z A-z]+$').hasMatch(value!)) {
-                            return "please enter correct name ";
-                          } else {
-                            return null;
-                          }
-                        },
                       ),
                       SizedBox(
                         height: 20,
                       ),
-                      TextFormField(
-                        controller: _econtroller,
-                        style: TextStyle(color: _inputTextColor),
-                        decoration: InputDecoration(
-                          label: Text(
-                            "Email Address",
-                            style: TextStyle(color: Colors.white),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: TextFormField(
+                          controller: _econtroller,
+                          style: TextStyle(color: _inputTextColor),
+                          decoration: InputDecoration(
+                            label: Text(
+                              "Email Address",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            border: OutlineInputBorder(),
+                            prefixIcon: Icon(
+                              Icons.email,
+                              color: Colors.white,
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                                borderRadius: BorderRadius.circular(10)),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.green, width: 2),
+                            ),
                           ),
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(
-                            Icons.email,
-                            color: Colors.white,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white)),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.green, width: 2),
-                          ),
+                          validator: (value) {
+                            if (value!.isEmpty ||
+                                !RegExp(r'^[\w.+\-]+@gmail\.com$')
+                                    .hasMatch(value)) {
+                              return 'Enter valid email';
+                            }
+                          },
                         ),
-                        validator: (value) {
-                          if (value!.isEmpty ||
-                              !RegExp(r'^[\w.+\-]+@gmail\.com$')
-                                  .hasMatch(value)) {
-                            return 'Enter valid email';
-                          }
-                        },
                       ),
                       SizedBox(
                         height: 20,
                       ),
-                      TextFormField(
-                        controller: _phcontroller,
-                        style: TextStyle(color: _inputTextColor),
-                        keyboardType: TextInputType.number,
-                        decoration: InputDecoration(
-                          label: Text(
-                            "Phone Number",
-                            style: TextStyle(color: Colors.white),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: TextFormField(
+                          controller: _phcontroller,
+                          style: TextStyle(color: _inputTextColor),
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            label: Text(
+                              "Phone Number",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            border: OutlineInputBorder(),
+                            prefixIcon: Icon(
+                              Icons.phone,
+                              color: Colors.white,
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                                borderRadius: BorderRadius.circular(10)),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.green, width: 2),
+                            ),
                           ),
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(
-                            Icons.phone,
-                            color: Colors.white,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white)),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.green, width: 2),
-                          ),
+                          validator: (value) {
+                            if (value!.isEmpty ||
+                                !RegExp(r'^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$')
+                                    .hasMatch(value!)) {
+                              return "please enter correct phone no. ";
+                            } else {
+                              return null;
+                            }
+                          },
                         ),
-                        validator: (value) {
-                          if (value!.isEmpty ||
-                              !RegExp(r'^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$')
-                                  .hasMatch(value!)) {
-                            return "please enter correct phone no. ";
-                          } else {
-                            return null;
-                          }
-                        },
                       ),
                       SizedBox(
                         height: 20,
                       ),
-                      TextFormField(
-                        controller: _pcontroller,
-                        style: TextStyle(color: _inputTextColor),
-                        obscureText: passToggle ? true : false,
-                        decoration: InputDecoration(
-                          label: Text(
-                            "Password",
-                            style: TextStyle(color: Colors.white),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: TextFormField(
+                          controller: _pcontroller,
+                          style: TextStyle(color: _inputTextColor),
+                          obscureText: passToggle ? true : false,
+                          decoration: InputDecoration(
+                            label: Text(
+                              "Password",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            border: OutlineInputBorder(),
+                            prefixIcon: Icon(
+                              Icons.lock,
+                              color: Colors.white,
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                                borderRadius: BorderRadius.circular(10)),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.green, width: 2),
+                            ),
+                            suffixIcon: InkWell(
+                              onTap: () {
+                                if (passToggle == true) {
+                                  passToggle = false;
+                                } else {
+                                  passToggle = true;
+                                }
+                                setState(() {});
+                              },
+                              child: passToggle
+                                  ? Icon(
+                                      CupertinoIcons.eye_slash_fill,
+                                      color: Colors.white,
+                                    )
+                                  : Icon(
+                                      CupertinoIcons.eye_fill,
+                                      color: Colors.white,
+                                    ),
+                            ),
                           ),
-                          border: OutlineInputBorder(),
-                          prefixIcon: Icon(
-                            Icons.lock,
-                            color: Colors.white,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.white)),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: Colors.green, width: 2),
-                          ),
-                          suffixIcon: InkWell(
-                            onTap: () {
-                              if (passToggle == true) {
-                                passToggle = false;
-                              } else {
-                                passToggle = true;
-                              }
-                              setState(() {});
-                            },
-                            child: passToggle
-                                ? Icon(
-                                    CupertinoIcons.eye_slash_fill,
-                                    color: Colors.white,
-                                  )
-                                : Icon(
-                                    CupertinoIcons.eye_fill,
-                                    color: Colors.white,
-                                  ),
-                          ),
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Enter  password';
+                            } else if (value.length < 6) {
+                              return "Atleast 6 characters required ";
+                            }
+                          },
                         ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Enter  password';
-                          } else if (value.length < 6) {
-                            return "Atleast 6 characters required ";
-                          }
-                        },
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 13),
                 Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: SizedBox(
                     width: double.infinity,
                     child: Material(
-                      color: Color.fromARGB(255, 255, 6, 6),
+                      color: Color.fromARGB(255, 20, 219, 27),
                       borderRadius: BorderRadius.circular(10),
                       child: InkWell(
                         onTap: () {
@@ -290,10 +306,10 @@ class _SignupScreenState extends State<SignupScreen> {
                     Text(
                       "Already have account?",
                       style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white70,
-                      ),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white70,
+                          fontStyle: FontStyle.italic),
                     ),
                     TextButton(
                       onPressed: () {
@@ -308,7 +324,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF7165D6)),
+                            color: Colors.white),
                       ),
                     ),
                   ],

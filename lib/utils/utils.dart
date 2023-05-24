@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class Utils {
   void toastMessage(String message) {
     Fluttertoast.showToast(
-        msg: "USER ALREADY REGISTERED",
+        msg: message,
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.BOTTOM,
         timeInSecForIosWeb: 1,
