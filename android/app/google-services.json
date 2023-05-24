@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "125714671164",
+    "project_id": "firecare-4b215",
+    "storage_bucket": "firecare-4b215.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125714671164:android:25292c045ad98e1d750539",
+        "android_client_info": {
+          "package_name": "com.digitalhealthcare.firecare"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "125714671164-dlfcklil1e7k93nen97k9771tqnvec5k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-CnLy1Np0-Hlixm83oadVioOx3XAvQh4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "125714671164-dlfcklil1e7k93nen97k9771tqnvec5k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
