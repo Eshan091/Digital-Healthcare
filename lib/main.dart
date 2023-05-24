@@ -57,38 +57,44 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
         child: SizedBox(
           width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                "images/mains.png",
-                height: 300, width: 300,
-                // color: const Color.fromARGB(255, 255, 255, 255),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 40,
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 70),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  "images/logo.png",
+
+                  height: 250, width: 250,
+                  // color: const Color.fromARGB(255, 255, 255, 255),
                 ),
-                child: Column(
-                  children: [
-                    Text(
-                        "Health is the  right of humans .     Stay FIT  , STAY HEALTHY   .",
-                        style: GoogleFonts.quicksand(
-                            fontSize: 20,
-                            wordSpacing: 4,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold)),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 45,
+                  ),
+                  child: Column(
+                    children: [
+                      Center(
+                        child: Text(
+                            "Health   is the  right of humans       .     Stay FIT  , STAY HEALTHY    .",
+                            style: GoogleFonts.acme(
+                                fontSize: 25,
+                                // wordSpacing: 4,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600)),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              SpinKitThreeInOut(
-                color: Colors.white,
-                size: 50,
-              )
-            ],
+                SizedBox(
+                  height: 20,
+                ),
+                SpinKitThreeInOut(
+                  color: Colors.white,
+                  size: 50,
+                )
+              ],
+            ),
           ),
         ),
       ),

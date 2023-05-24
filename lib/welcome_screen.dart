@@ -59,12 +59,12 @@ class WelcomeScreen extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 20),
             Text(
               "DIGITAL HEALTHCARE",
-              style: GoogleFonts.bebasNeue(
+              style: GoogleFonts.kanit(
                 color: Colors.white,
-                fontSize: 50,
+                fontSize: 35,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -83,7 +83,7 @@ class WelcomeScreen extends StatelessWidget {
               height: 40,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Material(
                   color: Color.fromARGB(255, 255, 21, 4),
