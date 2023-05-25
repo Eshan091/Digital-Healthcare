@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class _SignupScreenState extends State<SignupScreen> {
   bool loading = false;
   final _formKey = GlobalKey<FormState>();
 
-  TextEditingController _controller = TextEditingController();
+  TextEditingController _fcontroller = TextEditingController();
   TextEditingController _pcontroller = TextEditingController();
   TextEditingController _econtroller = TextEditingController();
 
@@ -30,7 +31,7 @@ class _SignupScreenState extends State<SignupScreen> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
-    _controller.dispose();
+    _fcontroller.dispose();
     _pcontroller.dispose();
     _phcontroller.dispose();
     _econtroller.dispose();
@@ -56,6 +57,12 @@ class _SignupScreenState extends State<SignupScreen> {
               builder: (context) => LoginScreen(),
             ));
 
+        //adding user details
+        addUserdetails(
+            _fcontroller.text.toString(),
+            _econtroller.text.toString(),
+            int.parse(_phcontroller.text.toString()));
+
         setState(() {
           loading = false;
         });
@@ -66,6 +73,14 @@ class _SignupScreenState extends State<SignupScreen> {
         });
       });
     }
+  }
+
+  Future addUserdetails(String fullName, String email, int phone) async {
+    await FirebaseFirestore.instance.collection('users').add({
+      'full name': fullName,
+      'email ': email,
+      'phone no': phone,
+    });
   }
 
   @override
@@ -104,7 +119,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                         child: TextFormField(
-                          controller: _controller,
+                          controller: _fcontroller,
                           style: TextStyle(color: _inputTextColor),
                           decoration: InputDecoration(
                             label: Text(

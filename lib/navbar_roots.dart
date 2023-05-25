@@ -1,8 +1,9 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/home_screen.dart';
+import 'package:flutter_application/profile_screen.dart';
 import 'package:flutter_application/setting.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 class NavBarRoots extends StatefulWidget {
   const NavBarRoots({super.key});
@@ -16,45 +17,80 @@ class _NavBarRootsState extends State<NavBarRoots> {
   final _screens = [
     //homescreen
     HomeScreen(),
-    //message screen
-    Container(),
-    //schedule screen
-    Container(),
+
     //settings screen
     SettingScreen(),
+    ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _screens[_selectedIndex],
-      backgroundColor: Colors.red,
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.red,
-        animationDuration: Duration(milliseconds: 400),
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        items: [
-          Icon(
-            Icons.home,
-            size: 30,
+
+      bottomNavigationBar: Container(
+        color: Colors.black,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),
+          child: GNav(
+            onTabChange: (index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
+            tabBorderRadius: 100,
+            activeColor: Colors.black,
+            gap: 8,
+            tabBorder: Border.all(
+                color: Colors.white30, width: 2, style: BorderStyle.solid),
+            backgroundColor: Colors.black87,
+            padding: EdgeInsets.all(16),
+            tabBackgroundColor: Colors.grey,
+            color: Colors.white,
+            tabs: [
+              GButton(
+                icon: Icons.home,
+                text: 'Home',
+              ),
+              GButton(
+                icon: Icons.settings,
+                text: 'Setting',
+              ),
+              GButton(
+                icon: Icons.person,
+                text: 'profile',
+              ),
+            ],
           ),
-          Icon(
-            CupertinoIcons.chat_bubble_fill,
-            size: 30,
-          ),
-          Icon(
-            Icons.calendar_month,
-            size: 30,
-          ),
-          Icon(
-            Icons.settings,
-            size: 30,
-          ),
-        ],
+        ),
       ),
+      // bottomNavigationBar: CurvedNavigationBar(
+      //   backgroundColor: Colors.red,
+      //   color: Colors.red.shade300,
+      //   animationDuration: Duration(milliseconds: 400),
+      //   onTap: (index) {
+      //     setState(() {
+      //       _selectedIndex = index;
+      //     });
+      //   },
+      //   items: [
+      //     Icon(
+      //       Icons.home,
+      //       size: 30,
+      //     ),
+      //     Icon(
+      //       CupertinoIcons.chat_bubble_fill,
+      //       size: 30,
+      //     ),
+      //     Icon(
+      //       Icons.calendar_month,
+      //       size: 30,
+      //     ),
+      //     Icon(
+      //       Icons.settings,
+      //       size: 30,
+      //     ),
+      //   ],
+      // ),
       // bottomNavigationBar: Container(
       //   height: 80,
       //   child: BottomNavigationBar(

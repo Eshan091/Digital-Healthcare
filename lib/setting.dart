@@ -16,20 +16,14 @@ class _SettingScreenState extends State<SettingScreen> {
   final _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.red,
-      appBar: AppBar(backgroundColor: Colors.transparent, actions: [
-        IconButton.filled(
-            onPressed: () {
-              _auth.signOut().then((value) {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()));
-              }).onError((error, stackTrace) {
-                Utils().toastMessage(error.toString());
-              });
-            },
-            icon: Icon(Icons.logout_outlined))
-      ]),
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
+        // backgroundColor: Colors.red,
+        backgroundColor: Colors.red,
+      ),
     );
   }
 }
