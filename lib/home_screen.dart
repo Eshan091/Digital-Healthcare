@@ -1,5 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application/Clinicvisit_screen.dart';
+import 'package:flutter_application/DoctorFour_screen.dart';
+import 'package:flutter_application/DoctorOne_screen.dart';
+import 'package:flutter_application/DoctorThree_screen.dart';
+import 'package:flutter_application/DoctorTwo_screen.dart';
+import 'package:flutter_application/Homevisit_screen.dart';
+import 'package:flutter_application/appointment.dart';
+import 'package:flutter_application/blood_screen.dart';
+import 'package:flutter_application/login_screen.dart';
 import 'package:flutter_application/profile_screen.dart';
 import 'package:flutter_application/signup_screen.dart';
 import 'package:flutter_application/welcome_screen.dart';
@@ -12,25 +21,19 @@ class HomeScreen extends StatelessWidget {
     "diagnostic centre",
     "Dentist",
     "orthologist",
-    "Best Hospital"
+    "Best Hospital",
+    "Need Blood?"
   ];
   List doctorname = [
-    "Dr. Eshan Srivastava",
-    "Dr. Ananya ",
-    "Dr. Ishika",
-    "Dr. Aakarshika Verma",
+    "Dr. A K Agarwal",
+    "Dr Jai Prakash Jaiswal ",
+    "DR. KETAN AGARWAL",
+    "DR. P N JAISWAL",
   ];
 
-  List imgs = ["doctor1.jpeg", "doctor2.jpeg", "doctor3.png", "doctor4.png"];
+  List imgs = ["agarwal.png", "jai.png", "ketan.png", "pnjaiswal.png"];
   final User = FirebaseAuth.instance.currentUser!;
-  // _launchUrl() async {
-  //   const url = "https://www.google.com";
-  //   if (await canLaunch(url)) {
-  //     await launch(url);
-  //   } else {
-  //     throw "could not launch";
-  //   }
-  // }
+
   final Uri urlA = Uri.parse(
       "https://www.google.com/maps/search/nearest+ambulance+service/@26.7958131,83.3896118,15z/data=!3m1!4b1?entry=ttu");
   final Uri urlDentist = Uri.parse(
@@ -142,7 +145,7 @@ class HomeScreen extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SignupScreen(),
+                              builder: (context) => ClinicVisit(),
                             ));
                       },
                       child: Container(
@@ -202,7 +205,13 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomeVisit(),
+                            ));
+                      },
                       child: Container(
                         padding: EdgeInsets.all(20),
                         decoration: BoxDecoration(
@@ -282,6 +291,7 @@ class HomeScreen extends StatelessWidget {
                             //       return Center(
                             //           child: CircularProgressIndicator());
                             //     });
+
                             launchUrl(urlA);
                           }
                           if (index == 1) {
@@ -295,6 +305,13 @@ class HomeScreen extends StatelessWidget {
                           }
                           if (index == 4) {
                             launchUrl(urlBest);
+                          }
+                          if (index == 5) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => BloodScreen(),
+                                ));
                           }
                           // Navigator.of(context).pop();
                         },
@@ -356,11 +373,34 @@ class HomeScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SignupScreen(),
-                            ));
+                        if (index == 0) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DoctorOne(),
+                              ));
+                        }
+                        if (index == 1) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DoctorTwo(),
+                              ));
+                        }
+                        if (index == 2) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DoctorThree(),
+                              ));
+                        }
+                        if (index == 3) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DoctorFour(),
+                              ));
+                        }
                       },
                       child: Container(
                         margin: EdgeInsets.all(10),

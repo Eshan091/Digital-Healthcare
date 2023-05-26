@@ -46,11 +46,33 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               Container(
                 decoration: BoxDecoration(
+                    color: Colors.black26,
+                    borderRadius: BorderRadius.circular(50)),
+                child: ListTile(
+                  title: Text(
+                    User.email!
+                        .substring(0, User.email!.indexOf('@'))
+                        .toUpperCase(),
+                  ),
+                  leading: Icon(Icons.person),
+                  iconColor: Colors.white,
+                  textColor: Colors.white,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                decoration: BoxDecoration(
                     color: Colors.black38,
                     borderRadius: BorderRadius.circular(50)),
                 child: ListTile(
-                  title: Text(User.email!),
-                  leading: Icon(Icons.person),
+                  title: Text(
+                    User.email!
+                        .substring(0, User.email!.indexOf('@'))
+                        .toUpperCase(),
+                  ),
+                  leading: Icon(Icons.call),
                   iconColor: Colors.white,
                   textColor: Colors.white,
                 ),
@@ -74,7 +96,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               Container(
                 decoration: BoxDecoration(
-                    color: Colors.red, borderRadius: BorderRadius.circular(50)),
+                  color: const Color.fromARGB(255, 238, 24, 9),
+                  borderRadius: BorderRadius.circular(50),
+                ),
                 child: ListTile(
                   onTap: () {
                     Navigator.push(

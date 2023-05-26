@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application/home_screen.dart';
 import 'package:flutter_application/profile_screen.dart';
-import 'package:flutter_application/setting.dart';
+import 'package:flutter_application/tips.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 class NavBarRoots extends StatefulWidget {
@@ -19,7 +19,7 @@ class _NavBarRootsState extends State<NavBarRoots> {
     HomeScreen(),
 
     //settings screen
-    SettingScreen(),
+    TipScreen(),
     ProfileScreen(),
   ];
   @override
@@ -52,8 +52,8 @@ class _NavBarRootsState extends State<NavBarRoots> {
                 text: 'Home',
               ),
               GButton(
-                icon: Icons.settings,
-                text: 'Setting',
+                icon: Icons.tv,
+                text: 'Health Tips',
               ),
               GButton(
                 icon: Icons.person,

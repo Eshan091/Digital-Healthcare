@@ -46,6 +46,7 @@ dependencies:
   quickalert: ^1.0.1
   google_nav_bar: ^5.0.6
   url_launcher: ^6.1.11
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
