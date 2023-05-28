@@ -68,7 +68,7 @@ class _DoctorOneState extends State<DoctorOne> {
                                 color: Colors.white,
                               )
                             : Text(
-                                'book appointment',
+                                'Book appointment',
                                 style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
@@ -170,9 +170,10 @@ class DetailBody extends StatelessWidget {
         Text(
           'Dr A K Agarwal, MBBS, MS is one of the most experienced General Surgeons in Gorakhpur having sheer knowledge and skill in surgeries. He has been practicing at located at Anandlok Hospital located at Gorakhnath road in Gorakhpur.',
           style: TextStyle(
-              fontSize: 13,
+              fontSize: 12,
               fontWeight: FontWeight.bold,
-              height: 1.5,
+              height: 1,
+              wordSpacing: 1,
               fontStyle: FontStyle.italic),
           softWrap: true,
           textAlign: TextAlign.justify,
@@ -235,7 +236,7 @@ class infoCard extends StatelessWidget {
               label,
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 15,
+                  fontSize: 10,
                   fontWeight: FontWeight.w600),
             ),
             SizedBox(

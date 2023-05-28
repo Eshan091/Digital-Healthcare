@@ -238,11 +238,11 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                             DateTime? pickDate = await showDatePicker(
                                 context: context,
                                 initialDate: DateTime.now(),
-                                firstDate: DateTime(2023),
+                                firstDate: DateTime(2023, 5, 27),
                                 lastDate: DateTime(2101));
                             if (pickDate != null) {
                               String formatteddate =
-                                  DateFormat("yyyy-MM-dd").format(pickDate);
+                                  DateFormat("dd-MM-yyyy").format(pickDate);
                               setState(() {
                                 _date.text = formatteddate.toString();
                               });

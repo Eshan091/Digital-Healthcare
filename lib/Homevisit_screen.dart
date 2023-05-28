@@ -238,7 +238,7 @@ class _HomeVisitState extends State<HomeVisit> {
                             DateTime? pickDate = await showDatePicker(
                                 context: context,
                                 initialDate: DateTime.now(),
-                                firstDate: DateTime(2023),
+                                firstDate: DateTime(2023, 5, 27),
                                 lastDate: DateTime(2101));
                             if (pickDate != null) {
                               String formatteddate =

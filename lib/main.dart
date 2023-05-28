@@ -70,15 +70,15 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 45,
+                    horizontal: 60,
                   ),
                   child: Column(
                     children: [
                       Center(
                         child: Text(
-                            "Health   is the  right of humans       .     Stay FIT  , STAY HEALTHY    .",
+                            "Health   is the  right of humans         .     Stay FIT  , STAY HEALTHY    .",
                             style: GoogleFonts.acme(
-                                fontSize: 25,
+                                fontSize: 20,
                                 // wordSpacing: 4,
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600)),

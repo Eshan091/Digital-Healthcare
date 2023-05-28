@@ -68,7 +68,7 @@ class _DoctorFourState extends State<DoctorFour> {
                                 color: Colors.white,
                               )
                             : Text(
-                                'book appointment',
+                                'Book appointment',
                                 style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
@@ -170,9 +170,10 @@ class DetailBody extends StatelessWidget {
         Text(
           'Dr. P.N Jaiswal is one of the best otolaryngologists in Gorakhpur. He completed his MBBS degree at GSVM Medical College Kanpur in 2004 and his MS in ENT from CSMMU (King George Medical University), Lucknow in 2010.  ',
           style: TextStyle(
-              fontSize: 13,
+              fontSize: 12,
               fontWeight: FontWeight.bold,
-              height: 1.5,
+              height: 1,
+              wordSpacing: 1,
               fontStyle: FontStyle.italic),
           softWrap: true,
           textAlign: TextAlign.justify,
@@ -235,7 +236,7 @@ class infoCard extends StatelessWidget {
               label,
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 15,
+                  fontSize: 10,
                   fontWeight: FontWeight.w600),
             ),
             SizedBox(

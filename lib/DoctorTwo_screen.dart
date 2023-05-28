@@ -68,7 +68,7 @@ class _DoctorTwoState extends State<DoctorTwo> {
                                 color: Colors.white,
                               )
                             : Text(
-                                'book appointment',
+                                'Book appointment',
                                 style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
@@ -170,9 +170,10 @@ class DetailBody extends StatelessWidget {
         Text(
           'Dr Jai Prakash Jaiswal, MBBS, MS is one of the best General Surgeons in Gorakhpur. He has completed his studies from one of the most recognized medical institution BRD Medical College, Gorakhpur. He has 38 years of experience. ',
           style: TextStyle(
-              fontSize: 13,
+              fontSize: 12,
               fontWeight: FontWeight.bold,
-              height: 1.5,
+              height: 1,
+              wordSpacing: 1,
               fontStyle: FontStyle.italic),
           softWrap: true,
           textAlign: TextAlign.justify,
@@ -235,7 +236,7 @@ class infoCard extends StatelessWidget {
               label,
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 15,
+                  fontSize: 10,
                   fontWeight: FontWeight.w600),
             ),
             SizedBox(

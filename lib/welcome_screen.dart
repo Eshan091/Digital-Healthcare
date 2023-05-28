@@ -5,9 +5,16 @@ import 'package:flutter_application/navbar_roots.dart';
 import 'package:flutter_application/signup_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
 
+  @override
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  bool loading1 = false;
+  bool loading2 = false;
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -67,7 +74,7 @@ class WelcomeScreen extends StatelessWidget {
                 "DIGITAL HEALTHCARE",
                 style: GoogleFonts.kanit(
                   color: Colors.white,
-                  fontSize: 35,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -93,23 +100,40 @@ class WelcomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                     child: InkWell(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginScreen(),
-                            ));
+                        setState(() {
+                          loading2 = true;
+                        });
+                        Future.delayed(Duration(seconds: 1), () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginScreen()));
+                          setState(() {
+                            loading2 = false;
+                          });
+                        });
+
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //       builder: (context) => LoginScreen(),
+                        //     ));
                       },
                       child: Padding(
                         padding:
                             EdgeInsets.symmetric(vertical: 15, horizontal: 50),
-                        child: Text(
-                          "Log In",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        child: loading2
+                            ? CircularProgressIndicator(
+                                color: Colors.white,
+                              )
+                            : Text(
+                                "Log In",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                       ),
                     ),
                   ),
@@ -118,23 +142,34 @@ class WelcomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                     child: InkWell(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SignupScreen(),
-                            ));
+                        setState(() {
+                          loading1 = true;
+                        });
+                        Future.delayed(Duration(seconds: 1), () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignupScreen()));
+                          setState(() {
+                            loading1 = false;
+                          });
+                        });
                       },
                       child: Padding(
                         padding:
                             EdgeInsets.symmetric(vertical: 15, horizontal: 50),
-                        child: Text(
-                          "Sign Up",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        child: loading1
+                            ? CircularProgressIndicator(
+                                color: Colors.white,
+                              )
+                            : Text(
+                                "Sign Up",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                       ),
                     ),
                   ),

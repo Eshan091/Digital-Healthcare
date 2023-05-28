@@ -65,11 +65,11 @@ class _DoctorThreeState extends State<DoctorThree> {
                                 color: Colors.white,
                               )
                             : Text(
-                                'book appointment',
+                                'Book appointment',
                                 style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.black),
+                                    color: Colors.black87),
                               ),
                       ),
                     ),
@@ -167,9 +167,10 @@ class DetailBody extends StatelessWidget {
         Text(
           'Dr. Ketan Agarwal is a young and well-known ENT specialist in Gorakhpur & surrounding areas. Following his MBBS, he obtained his MS in ENT from Krishna Institute of Medical Sciences, Karad, in 2017.',
           style: TextStyle(
-              fontSize: 14,
+              fontSize: 12,
               fontWeight: FontWeight.bold,
-              height: 1.5,
+              height: 1,
+              wordSpacing: 1,
               fontStyle: FontStyle.italic),
           softWrap: true,
           textAlign: TextAlign.justify,
@@ -232,7 +233,7 @@ class infoCard extends StatelessWidget {
               label,
               style: TextStyle(
                   color: Colors.black,
-                  fontSize: 15,
+                  fontSize: 10,
                   fontWeight: FontWeight.w600),
             ),
             SizedBox(

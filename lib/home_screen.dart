@@ -18,11 +18,13 @@ import 'package:url_launcher/url_launcher.dart';
 class HomeScreen extends StatelessWidget {
   List symptoms = [
     "Ambulance",
-    "diagnostic centre",
+    "Diagnostic Centre",
     "Dentist",
-    "orthologist",
-    "Best Hospital",
-    "Need Blood?"
+    "Orthologist",
+    "Nearby Hospital",
+    "Need Blood?",
+    "Nearby Bloodbanks",
+    "Hospitals having Ventilator"
   ];
   List doctorname = [
     "Dr. A K Agarwal",
@@ -46,6 +48,10 @@ class HomeScreen extends StatelessWidget {
   final Uri urlBest = Uri.parse(
       "https://www.google.com/maps/search/hospital+near+me/@26.7958131,83.3896118,15z/data=!3m1!4b1?entry=ttu");
 
+  final Uri urlBlood = Uri.parse(
+      "https://www.google.com/maps/search/nearby+blood+banks/@26.8506061,80.9557559,13z/data=!3m1!4b1?entry=ttu");
+  final Uri urlventilator = Uri.parse(
+      "https://www.google.com/maps/search/hospitals+having+ventilator+in+gorakhpur/@26.7723148,83.343382,13z/data=!3m1!4b1?entry=ttu");
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -123,7 +129,7 @@ class HomeScreen extends StatelessWidget {
                                 .substring(0, User.email!.indexOf('@'))
                                 .toUpperCase(),
                         style: GoogleFonts.kanit(
-                            fontSize: 25,
+                            fontSize: 15,
                             fontWeight: FontWeight.bold,
                             color: Colors.white),
                       ),
@@ -149,7 +155,7 @@ class HomeScreen extends StatelessWidget {
                             ));
                       },
                       child: Container(
-                        padding: EdgeInsets.all(20),
+                        padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             begin: Alignment.topLeft,
@@ -182,14 +188,14 @@ class HomeScreen extends StatelessWidget {
                               child: Icon(
                                 Icons.add,
                                 color: Colors.white,
-                                size: 30,
+                                size: 15,
                               ),
                             ),
                             SizedBox(height: 30),
                             Text(
                               "Clinic Visit",
                               style: TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 15,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -213,7 +219,7 @@ class HomeScreen extends StatelessWidget {
                             ));
                       },
                       child: Container(
-                        padding: EdgeInsets.all(20),
+                        padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           color: Colors.red,
                           borderRadius: BorderRadius.circular(10),
@@ -237,14 +243,14 @@ class HomeScreen extends StatelessWidget {
                               child: Icon(
                                 Icons.home,
                                 color: Colors.red,
-                                size: 30,
+                                size: 15,
                               ),
                             ),
                             SizedBox(height: 30),
                             Text(
                               "Home Visit",
                               style: TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 15,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -312,6 +318,12 @@ class HomeScreen extends StatelessWidget {
                                 MaterialPageRoute(
                                   builder: (context) => BloodScreen(),
                                 ));
+                          }
+                          if (index == 6) {
+                            launchUrl(urlBlood);
+                          }
+                          if (index == 7) {
+                            launchUrl(urlventilator);
                           }
                           // Navigator.of(context).pop();
                         },

@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application/session.dart';
 import 'package:flutter_application/welcome_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -12,6 +14,13 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   final User = FirebaseAuth.instance.currentUser!;
+  bool loading = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,24 +46,38 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(
                 height: 220,
                 child: Center(
-                  child: Icon(
+                  child: CircleAvatar(
+                    child: Icon(
+                      Icons.person,
+                      size: 80,
+                      color: Colors.white,
+                    ),
+                    backgroundColor: Colors.black,
+                    maxRadius: 60,
+
+                    // Icons.person,
+                    // size: 100,
+                    // color: Colors.white,
+                  ),
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    color: Colors.black38,
+                    borderRadius: BorderRadius.circular(50)),
+                child: ListTile(
+                  title: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      User.email!
+                          .substring(0, User.email!.indexOf('@'))
+                          .toUpperCase(),
+                    ),
+                  ),
+                  leading: Icon(
                     Icons.person,
-                    size: 130,
-                    color: Colors.white,
+                    size: 30,
                   ),
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.black26,
-                    borderRadius: BorderRadius.circular(50)),
-                child: ListTile(
-                  title: Text(
-                    User.email!
-                        .substring(0, User.email!.indexOf('@'))
-                        .toUpperCase(),
-                  ),
-                  leading: Icon(Icons.person),
                   iconColor: Colors.white,
                   textColor: Colors.white,
                 ),
@@ -67,12 +90,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     color: Colors.black38,
                     borderRadius: BorderRadius.circular(50)),
                 child: ListTile(
-                  title: Text(
-                    User.email!
-                        .substring(0, User.email!.indexOf('@'))
-                        .toUpperCase(),
+                  title: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(User.email!),
                   ),
-                  leading: Icon(Icons.call),
+                  leading: Icon(
+                    Icons.email_rounded,
+                    size: 30,
+                  ),
                   iconColor: Colors.white,
                   textColor: Colors.white,
                 ),
@@ -85,14 +110,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     color: Colors.black38,
                     borderRadius: BorderRadius.circular(50)),
                 child: ListTile(
-                  title: Text(User.email!),
-                  leading: Icon(Icons.email_rounded),
+                  title: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text("Gorakhpur"),
+                  ),
+                  leading: Icon(
+                    Icons.location_history,
+                    size: 30,
+                  ),
                   iconColor: Colors.white,
                   textColor: Colors.white,
                 ),
               ),
               SizedBox(
-                height: 50,
+                height: 20,
+              ),
+              SizedBox(
+                height: 10,
               ),
               Container(
                 decoration: BoxDecoration(
@@ -101,15 +135,33 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 child: ListTile(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => WelcomeScreen()));
+                    setState(() {
+                      loading = true;
+                    });
+                    Future.delayed(Duration(seconds: 3), () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => WelcomeScreen()));
+                      setState(() {
+                        loading = false;
+                      });
+                    });
                   },
-                  title: Text(
-                    "LOGOUT",
-                    style: TextStyle(fontSize: 22),
-                  ),
+                  title: loading
+                      ? Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(right: 40),
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                            ),
+                          ),
+                        )
+                      : Text(
+                          "LOGOUT",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
                   leading: Icon(Icons.logout),
                   iconColor: Colors.white,
                   textColor: Colors.white,
